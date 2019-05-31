@@ -14,5 +14,5 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir["lib/**/*"] + %w{ bin/git-copy README.md LICENSE }
 
-  spec.add_runtime_dependency('addressable', '~> 2.3')
+  # spec.add_runtime_dependency('addressable', '~> 2.3')
 end
