@@ -1,5 +1,5 @@
 require 'tmpdir'
-require 'addressable/uri'
+# require 'addressable/uri'
 
 module Git
 
@@ -9,12 +9,12 @@ module Git
     # Example:
     #   >> GitCopy("https://github.com/cybertk/git-copy", "https://bitbucket.com/mirror.git")
     #   >> GitCopy("https://github.com/cybertk/git-copy", "mirror.git")
-    uri = Addressable::URI.parse(dst)
+    # uri = Addressable::URI.parse(dst)
 
     # Convert to absolute path for local path
-    dst = File.absolute_path(dst) unless uri.scheme
+    # dst = File.absolute_path(dst) unless uri.scheme
 
-    if uri.scheme || File.exist?(dst)
+    # if uri.scheme || File.exist?(dst)
 
       Dir.mktmpdir('git-copy-') do |dir|
         # Clone source into temp working dir
@@ -26,12 +26,12 @@ module Git
           raise 'git push faild'
         end
       end
-    else
-      # Copy to local path
-      unless `git clone --bare #{src} #{dst}`.to_i == 0
-        raise 'git clone failed'
-      end
-    end
+    # else
+    #   # Copy to local path
+    #   unless `git clone --bare #{src} #{dst}`.to_i == 0
+    #     raise 'git clone failed'
+    #   end
+    # end
 
   end
 
